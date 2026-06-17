@@ -1,0 +1,54 @@
+pan: ltl formula safety_1_SN
+Interrupted
+
+(Spin Version 6.5.1 -- 20 December 2019)
+Warning: Search not completed
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	+ (safety_1_SN)
+	assertion violations	+ (if within scope of claim)
+	acceptance   cycles 	+ (fairness disabled)
+	invalid end states	- (disabled by never claim)
+
+State-vector 284 byte, depth reached 600607, errors: 0
+   882286 states, stored
+  2660210 states, matched
+  3542496 transitions (= stored+matched)
+        0 atomic steps
+hash conflicts:    124827 (resolved)
+
+Stats on memory usage (in Megabytes):
+  262.521	equivalent memory usage for states (stored*(State-vector + overhead))
+  202.819	actual memory usage for states (compression: 77.26%)
+         	state-vector as stored = 213 byte + 28 byte overhead
+  128.000	memory used for hash table (-w24)
+   53.406	memory used for DFS stack (-m1000000)
+  383.847	total actual memory usage
+
+
+
+pan: elapsed time 2.65 seconds
+pan: rate 332938.11 states/second
+ltl safety_1_SN: [] (! ((traffic_lights_states[1]) && (((traffic_lights_states[2]) || (traffic_lights_states[4])) || (traffic_lights_states[5]))))
+ltl safety_2_EW: [] (! ((traffic_lights_states[2]) && ((traffic_lights_states[6]) || (traffic_lights_states[1]))))
+ltl safety_3_SW: [] (! ((traffic_lights_states[3]) && ((traffic_lights_states[4]) || (traffic_lights_states[5]))))
+ltl safety_4_ES: [] (! ((traffic_lights_states[4]) && ((((traffic_lights_states[6]) || (traffic_lights_states[1])) || (traffic_lights_states[3])) || (traffic_lights_states[5]))))
+ltl safety_5_WE: [] (! ((traffic_lights_states[5]) && ((((traffic_lights_states[4]) || (traffic_lights_states[3])) || (traffic_lights_states[1])) || (traffic_lights_states[6]))))
+ltl safety_6_PED: [] (! ((traffic_lights_states[6]) && (((traffic_lights_states[2]) || (traffic_lights_states[4])) || (traffic_lights_states[5]))))
+ltl liveness_1_SN: [] ((! (((road_sensor_state[1]==1)) && ((traffic_lights_states[1]==0)))) || (<> ((traffic_lights_states[1]==1))))
+ltl liveness_2_EW: [] ((! (((road_sensor_state[2]==1)) && ((traffic_lights_states[2]==0)))) || (<> ((traffic_lights_states[2]==1))))
+ltl liveness_3_SW: [] ((! (((road_sensor_state[3]==1)) && ((traffic_lights_states[3]==0)))) || (<> ((traffic_lights_states[3]==1))))
+ltl liveness_4_ES: [] ((! (((road_sensor_state[4]==1)) && ((traffic_lights_states[4]==0)))) || (<> ((traffic_lights_states[4]==1))))
+ltl liveness_5_WE: [] ((! (((road_sensor_state[5]==1)) && ((traffic_lights_states[5]==0)))) || (<> ((traffic_lights_states[5]==1))))
+ltl liveness_6_PED: [] ((! (((road_sensor_state[6]==1)) && ((traffic_lights_states[6]==0)))) || (<> ((traffic_lights_states[6]==1))))
+ltl fairness_1_SN: [] (<> ((traffic_lights_states[1]==0)))
+ltl fairness_2_EW: [] (<> ((traffic_lights_states[2]==0)))
+ltl fairness_3_SW: [] (<> ((traffic_lights_states[3]==0)))
+ltl fairness_4_ES: [] (<> ((traffic_lights_states[4]==0)))
+ltl fairness_5_WE: [] (<> ((traffic_lights_states[5]==0)))
+ltl fairness_6_PED: [] (<> ((traffic_lights_states[6]==0)))
+  the model contains 18 never claims: fairness_6_PED, fairness_5_WE, fairness_4_ES, fairness_3_SW, fairness_2_EW, fairness_1_SN, liveness_6_PED, liveness_5_WE, liveness_4_ES, liveness_3_SW, liveness_2_EW, liveness_1_SN, safety_6_PED, safety_5_WE, safety_4_ES, safety_3_SW, safety_2_EW, safety_1_SN
+  only one claim is used in a verification run
+  choose which one with ./pan -a -N name (defaults to -N safety_1_SN)
+  or use e.g.: spin -search -ltl safety_1_SN task.pml
